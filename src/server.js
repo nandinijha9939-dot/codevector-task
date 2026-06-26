@@ -3,7 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const prisma = require("./prisma");
 const app = express();
-
+app.get("/", (req, res) => {
+  res.json({
+    message: "CodeVector Backend Task API",
+    endpoint: "/products",
+  });
+});
 app.get("/products", async (req, res) => {
   try {
     const {
